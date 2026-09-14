@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafaf9;
+  --foreground: #171717;
+  --primary: #b42318;
+  --primary-dark: #8f1d14;
+  --muted: #57534e;
+  --border: #e7e5e4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-playfair), serif;
+}
+
+/* Selection */
+
+::selection {
+  background: #b42318;
+  color: white;
+}
+
+/* Smooth focus */
+
+:focus-visible {
+  outline: 2px solid #b42318;
+  outline-offset: 3px;
+}
+
+/* Animations */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+
+/* Article card */
+
+.article-card {
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease,
+    border-color 300ms ease;
+}
+
+.article-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(28, 25, 23, 0.08);
+  border-color: #d6d3d1;
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
